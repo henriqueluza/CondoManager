@@ -1,5 +1,3 @@
-using CondoManager.Domain.Enums;
-
 namespace CondoManager.Domain.Entities;
 
 public class Condominium
