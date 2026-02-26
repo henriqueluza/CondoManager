@@ -6,5 +6,9 @@ public class Condominium
     public string Name { get; set; }
     public string Address { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-   public ICollection<Member> Members { get; set; } = new List<Member>();
+    public ICollection<Member> Members { get; set; } = new List<Member>();
+    
+    public Guid UserId { get; set; }
+    public User User { get; set; }
+   
 }
