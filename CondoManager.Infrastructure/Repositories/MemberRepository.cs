@@ -14,7 +14,7 @@ public class MemberRepository : IMemberRepository
         _context = context;
     }
 
-    public async Task<Member?> GetByID(Guid id)
+    public async Task<Member?> GetById(Guid id)
     {
         return await _context.Members.FindAsync(id);
     }
@@ -32,7 +32,7 @@ public class MemberRepository : IMemberRepository
 
     public async Task Update(Member member)
     {   
-        var existing = await GetByID(member.Id);
+        var existing = await GetById(member.Id);
         if (existing == null) return;
         _context.Members.Update(member);
         await _context.SaveChangesAsync();
@@ -40,7 +40,7 @@ public class MemberRepository : IMemberRepository
 
     public async Task Delete(Guid id)
     {
-        var member = await GetByID(id);
+        var member = await GetById(id);
         if (member == null) return;
         _context.Members.Remove(member);
         await _context.SaveChangesAsync();

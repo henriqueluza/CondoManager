@@ -4,7 +4,7 @@ namespace CondoManager.Domain.Interfaces;
 
 public interface IMemberRepository
 {
-    Task<Member?> GetByID(Guid id);
+    Task<Member?> GetById(Guid id);
     Task<ICollection<Member>> GetAll(Guid condominiumId);
     Task Add(Member member);
     Task Update(Member member);
