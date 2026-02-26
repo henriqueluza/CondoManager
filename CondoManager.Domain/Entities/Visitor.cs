@@ -11,4 +11,6 @@ public class Visitor
     public DateOnly DateOfVisit { get; set; }
     public Guid AuthorizedById { get; set; }
     public Resident AuthorizedBy { get; set; }
+    public Guid CondominiumId { get; set; }
+    public Condominium Condominium { get; set; }
 }
