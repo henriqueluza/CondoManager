@@ -10,4 +10,6 @@ public abstract class Member
     public string Cpf {get; set;}
     public DateOnly DateOfBirth {get; set;}
     public MemberRole Role {get; set;}
+    public Guid CondominiumId { get; set; }
+    public Condominium Condominium { get; set; }
 }
