@@ -2,7 +2,7 @@ using CondoManager.Domain.Entities;
 
 namespace CondoManager.Domain.Interfaces;
 
-public interface  ICondominiumRepository
+public interface ICondominiumRepository
 {
     Task<Condominium?> GetByID(Guid id);
     Task <ICollection<Condominium>> GetAll();
