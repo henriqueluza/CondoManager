@@ -12,7 +12,6 @@ public class CreateEmployeeUseCase(IEmployeeRepository repository)
     {
         var employee = new Employee
         {
-            Id = Guid.NewGuid(),
             Name = dto.Name,
             Email = dto.Email,
             Cpf = dto.Cpf,
