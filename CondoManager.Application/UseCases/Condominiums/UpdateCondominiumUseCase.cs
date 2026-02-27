@@ -1,4 +1,3 @@
-using CondoManager.Domain.Entities;
 using CondoManager.Domain.Interfaces;
 using CondoManager.Application.DTOs.Condominiums;
 
