@@ -4,14 +4,9 @@ using CondoManager.Application.DTOs.Condominiums;
 
 namespace CondoManager.Application.UseCases.Condominiums;
 
-public class CreateCondominiumUseCase
+public class CreateCondominiumUseCase(ICondominiumRepository repository)
 {
-    private readonly ICondominiumRepository _repository;
-
-    public CreateCondominiumUseCase(ICondominiumRepository repository)
-    {
-        _repository = repository;
-    }
+    private readonly ICondominiumRepository _repository = repository;
 
     public async Task Execute(CreateCondominiumDto dto)
     {
