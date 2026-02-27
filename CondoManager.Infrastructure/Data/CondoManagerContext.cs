@@ -13,4 +13,6 @@ public class CondoManagerContext : DbContext
     public DbSet<AccessLog> AccessLogs { get; set; }
     public DbSet<Condominium> Condominiums { get; set; }
     public DbSet<User> Users { get; set; }
+    
+    public DbSet <Employee> Employees { get; set; }
 }
