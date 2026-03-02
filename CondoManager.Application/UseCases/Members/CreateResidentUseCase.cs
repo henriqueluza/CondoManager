@@ -20,7 +20,7 @@ public class CreateResidentUseCase(IMemberRepository repository)
             Role = dto.Role,
             CondominiumId = dto.CondominiumId,
             Apartment = dto.Apartment,
-            Block = dto.Block,
+            Block = dto.Block
         };
 
         await _repository.Add(resident);
