@@ -4,7 +4,7 @@ using CondoManager.Application.DTOs.Condominiums;
 
 namespace CondoManager.Application.UseCases.Condominiums;
 
-public class GetAllCondominiumUseCase(ICondominiumRepository repository)
+public class GetAllCondominiumsUseCase(ICondominiumRepository repository)
 {
     private readonly ICondominiumRepository _repository = repository;
    
