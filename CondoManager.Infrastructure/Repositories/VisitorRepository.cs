@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CondoManager.Infrastructure.Repositories;
 
-public class VisitRepository : IVisitorRepository
+public class VisitorRepository : IVisitorRepository
 {
     private readonly CondoManagerContext _context;
 
-    public VisitRepository(CondoManagerContext context)
+    public VisitorRepository(CondoManagerContext context)
     {
         _context = context;
     }
