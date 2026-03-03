@@ -15,4 +15,25 @@ public class CondoManagerContext : DbContext
     public DbSet<User> Users { get; set; }
     
     public DbSet <Employee> Employees { get; set; }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Visitor>()
+            .HasOne(v => v.AuthorizedBy)
+            .WithMany()
+            .HasForeignKey(v => v.AuthorizedById)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<AccessLog>()
+            .HasOne(a => a.Visitor)
+            .WithMany()
+            .HasForeignKey(a => a.VisitorId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<AccessLog>()
+            .HasOne(a => a.Employee)
+            .WithMany()
+            .HasForeignKey(a => a.EmployeeId)
+            .OnDelete(DeleteBehavior.Restrict);
+    }
 }
