@@ -1,0 +1,12 @@
+namespace CondoManager.Domain.Entities;
+
+public class User
+{
+    public Guid Id { get; set; } =  Guid.NewGuid();
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public string Cpf { get; set; }
+    public string Cellphone { get; set; }
+    public string PasswordHash { get; set; }
+    public ICollection<Condominium> Condominiums { get; set; } = new List<Condominium>();
+}
