@@ -15,7 +15,7 @@ public class LoginUserUseCase(IUserRepository repository)
     private string GenerateToken(User user)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.UTF8.GetBytes("sua-chave-secreta-deve-ter-32-caracteres!!");
+        var key = Encoding.UTF8.GetBytes("sua-chave-secreta-deve-ter-32-caracteres!!"); // senha temporária durante desenvolvimento
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
