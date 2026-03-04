@@ -52,9 +52,9 @@ public class UserController : ControllerBase
     
         Response.Cookies.Append("jwt", token, new CookieOptions
         {
-            HttpOnly = true,
-            Secure = true,
-            SameSite = SameSiteMode.Strict,
+            HttpOnly = false, // alterei para desenvolvimento
+            Secure = false, // alterei para desenvolvimento
+            SameSite = SameSiteMode.Lax,
             Expires = DateTime.UtcNow.AddDays(7)
         });
     
