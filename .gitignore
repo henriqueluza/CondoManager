@@ -483,3 +483,6 @@ $RECYCLE.BIN/
 
 # Informações sensíveis
 **/appsettings.Development.json
+
+/bin
+/obj
