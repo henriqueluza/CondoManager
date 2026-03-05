@@ -19,5 +19,9 @@ export class AuthServices {
     const body = {name, email, cpf, cellphone, password};
     return this.http.post(`${environment.apiUrl}/api/user/register`, body)
   }
+
+  me() {
+    return this.http.get(`${environment.apiUrl}/api/user/me`);
+  }
 }
 
