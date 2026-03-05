@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using CondoManager.Application.DTOs.Users;
@@ -59,5 +60,17 @@ public class UserController : ControllerBase
         });
     
         return Ok();
+    }
+
+    [HttpGet("me")]
+    public async Task<IActionResult> GetMe()
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (userId == null) return Unauthorized();
+
+        var result = await _getUseCase.Execute(Guid.Parse(userId));
+        if (result == null) return NotFound();
+        
+        return Ok(result);
     }
 }
