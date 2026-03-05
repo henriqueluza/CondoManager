@@ -129,24 +129,40 @@
                   <input
                     class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
                     type="text" formControlName="name" placeholder="João Silva"/>
+                  @if (registerForm.get('name')?.errors?.['required'] && registerForm.get('name')?.touched) {
+                    <span class="text-red-500 text-[11px] mt-1 block">Nome é obrigatório</span>
+                  }
                 </div>
                 <div class="mb-3">
                   <label class="block text-[11px] font-semibold text-[#888] uppercase tracking-widest mb-1.5">E-mail</label>
                   <input
                     class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
                     type="email" formControlName="email" placeholder="seu@email.com"/>
+                  @if (registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched) {
+                    <span class="text-red-500 text-[11px] mt-1 block">E-mail é obrigatório</span>
+                  }
+                  @if (registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched) {
+                    <span class="text-red-500 text-[11px] mt-1 block">E-mail inválido</span>
+                  }
+
                 </div>
                 <div class="mb-3">
                   <label class="block text-[11px] font-semibold text-[#888] uppercase tracking-widest mb-1.5">CPF</label>
                   <input
                     class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
                     type="text" formControlName="cpf" placeholder="000.000.000-00"/>
+                  @if (registerForm.get('cpf')?.errors?.['cpfInvalido'] && registerForm.get('cpf')?.touched) {
+                    <span class="text-red-500 text-[11px] mt-1 block">CPF inválido</span>
+                  }
                 </div>
                 <div class="mb-3">
                   <label class="block text-[11px] font-semibold text-[#888] uppercase tracking-widest mb-1.5">Telefone</label>
                   <input
                     class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
                     type="text" formControlName="cellphone" placeholder="(00) 00000-0000"/>
+                  @if (registerForm.get('cellphone')?.errors?.['telefoneInvalido'] && registerForm.get('cellphone')?.touched) {
+                    <span class="text-red-500 text-[11px] mt-1 block">Número de telefone deve seguir um padrão</span>
+                  }
                 </div>
               </div>
               <div class="mb-4">
@@ -154,6 +170,9 @@
                 <input
                   class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
                   type="password" formControlName="password" placeholder="••••••••"/>
+                @if (registerForm.get('password')?.errors?.['senhaFraca'] && registerForm.get('password')?.touched) {
+                  <span class="text-red-500 text-[11px] mt-1 block">Senha fraca. A senha deve conter números, letra maiúscula e um símbolo</span>
+                }
               </div>
               <button type="submit"
                       class="w-full py-3 bg-[#1a1a1a] text-white rounded-lg text-sm font-semibold cursor-pointer hover:opacity-80 transition-opacity border-0">
