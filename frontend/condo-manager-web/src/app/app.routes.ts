@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import {Login} from './features/auth/login/login';
+import {Auth} from './features/auth/auth';
 import {Dashboard} from "./features/dashboard/dashboard";
 
 export const routes: Routes = [
-  {path: "login", component: Login},
+  {path: "auth", component: Auth},
   { path: 'dashboard', component: Dashboard },
-  {path: "", redirectTo: "login", pathMatch: "full"}
+  {path: "", redirectTo: "auth", pathMatch: "full"}
 ];
