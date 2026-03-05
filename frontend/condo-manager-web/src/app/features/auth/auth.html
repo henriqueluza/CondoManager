@@ -1,0 +1,170 @@
+<div class="min-h-screen bg-[#f0eeea] flex items-center justify-center">
+  <div class="grid grid-cols-2 w-[900px] min-h-[560px] bg-white rounded-2xl overflow-hidden shadow-2xl">
+
+    <!-- LEFT -->
+    <div class="bg-[#f7f6f2] flex flex-col items-center justify-center px-10 py-12 gap-7">
+
+      <div class="relative w-[240px] h-[240px]">
+
+        <div class="illus absolute inset-0 flex items-center justify-center"
+             [class.hidden]="activeTab !== 'login'">
+          <svg width="220" height="220" viewBox="0 0 280 280" fill="none">
+            <rect x="60" y="100" width="160" height="140" rx="4" fill="#e8e6e0"/>
+            <rect x="60" y="100" width="160" height="12" rx="2" fill="#d4d0c8"/>
+            <rect x="80" y="125" width="28" height="22" rx="3" fill="#c8d8f0"/>
+            <rect x="126" y="125" width="28" height="22" rx="3" fill="#c8d8f0"/>
+            <rect x="172" y="125" width="28" height="22" rx="3" fill="#b8cceb"/>
+            <rect x="80" y="162" width="28" height="22" rx="3" fill="#b8cceb"/>
+            <rect x="126" y="162" width="28" height="22" rx="3" fill="#c8d8f0"/>
+            <rect x="172" y="162" width="28" height="22" rx="3" fill="#c8d8f0"/>
+            <rect x="116" y="200" width="48" height="40" rx="3" fill="#bbb6ac"/>
+            <circle cx="158" cy="221" r="3" fill="#999"/>
+            <polygon points="140,62 40,102 240,102" fill="#ccc9c0"/>
+            <polygon points="140,62 55,102 225,102" fill="#d8d4cc"/>
+            <ellipse cx="42" cy="195" rx="22" ry="28" fill="#b8d4b0"/>
+            <rect x="39" y="215" width="6" height="25" fill="#a0886a"/>
+            <ellipse cx="238" cy="192" rx="20" ry="25" fill="#a8c8a0"/>
+            <rect x="235" y="210" width="6" height="30" fill="#a0886a"/>
+            <rect x="20" y="238" width="240" height="6" rx="3" fill="#d4d0c8"/>
+          </svg>
+        </div>
+
+        <div class="illus absolute inset-0 flex items-center justify-center"
+             [class.hidden]="activeTab !== 'register'">
+          <svg width="220" height="220" viewBox="0 0 280 280" fill="none">
+            <rect x="70" y="70" width="140" height="170" rx="8" fill="#e8e6e0"/>
+            <rect x="70" y="70" width="140" height="170" rx="8" stroke="#d4d0c8" stroke-width="2"/>
+            <rect x="110" y="58" width="60" height="28" rx="6" fill="#d4d0c8"/>
+            <rect x="122" y="64" width="36" height="16" rx="3" fill="#c8c4bc"/>
+            <rect x="90" y="115" width="100" height="8" rx="4" fill="#d4d0c8"/>
+            <rect x="90" y="133" width="80" height="8" rx="4" fill="#dedad4"/>
+            <rect x="90" y="151" width="90" height="8" rx="4" fill="#d4d0c8"/>
+            <rect x="90" y="169" width="60" height="8" rx="4" fill="#dedad4"/>
+            <circle cx="140" cy="96" r="14" fill="#c8c4bc"/>
+            <circle cx="140" cy="90" r="6" fill="#bbb6ac"/>
+            <path d="M129 104 Q140 97 151 104" stroke="#bbb6ac" stroke-width="2" fill="none"/>
+            <circle cx="188" cy="200" r="22" fill="#b8d4b0"/>
+            <rect x="186" y="190" width="4" height="20" rx="2" fill="#fff"/>
+            <rect x="178" y="198" width="20" height="4" rx="2" fill="#fff"/>
+          </svg>
+        </div>
+
+      </div>
+
+      <div class="relative min-h-[72px] w-full text-center">
+        <div class="illus-text absolute inset-0 flex flex-col items-center"
+             [class.hidden]="activeTab !== 'login'">
+          <div class="font-['Fraunces'] text-[22px] font-light italic text-[#2a2a2a] mb-2 leading-snug">
+            Seu condomínio,<br>bem administrado.
+          </div>
+          <div class="text-[13px] text-[#999] leading-relaxed">
+            Gerencie membros, visitantes<br>e acessos em um só lugar.
+          </div>
+        </div>
+        <div class="illus-text absolute inset-0 flex flex-col items-center"
+             [class.hidden]="activeTab !== 'register'">
+          <div class="font-['Fraunces'] text-[22px] font-light italic text-[#2a2a2a] mb-2 leading-snug">
+            Crie sua conta<br>e comece agora.
+          </div>
+          <div class="text-[13px] text-[#999] leading-relaxed">
+            Preencha seus dados e<br>acesse tudo gratuitamente.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="flex flex-col justify-center px-12 py-12">
+
+      <div class="flex border-b border-[#eee] mb-8">
+        <button
+          class="tab pb-3 mr-7 text-[15px] font-medium -mb-px cursor-pointer"
+          [style.color]="activeTab === 'login' ? '#1a1a1a' : '#bbb'"
+          [style.border-bottom-color]="activeTab === 'login' ? '#1a1a1a' : 'transparent'"
+          (click)="switchTab('login')">
+          Entrar
+        </button>
+        <button
+          class="tab pb-3 mr-7 text-[15px] font-medium -mb-px cursor-pointer"
+          [style.color]="activeTab === 'register' ? '#1a1a1a' : '#bbb'"
+          [style.border-bottom-color]="activeTab === 'register' ? '#1a1a1a' : 'transparent'"
+          (click)="switchTab('register')">
+          Cadastrar
+        </button>
+      </div>
+
+      <div class="overflow-hidden w-full">
+        <div class="forms-track flex w-[200%]"
+             [class.show-register]="activeTab === 'register'">
+
+          <!-- LOGIN -->
+          <div class="w-1/2 pr-1">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+              <div class="mb-3">
+                <label class="block text-[11px] font-semibold text-[#888] uppercase tracking-widest mb-1.5">E-mail</label>
+                <input
+                  class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
+                  type="email" formControlName="email" placeholder="seu@email.com"/>
+              </div>
+              <div class="mb-4">
+                <label class="block text-[11px] font-semibold text-[#888] uppercase tracking-widest mb-1.5">Senha</label>
+                <input
+                  class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
+                  type="password" formControlName="password" placeholder="••••••••"/>
+              </div>
+              <button type="submit"
+                      class="w-full py-3 bg-[#1a1a1a] text-white rounded-lg text-sm font-semibold cursor-pointer hover:opacity-80 transition-opacity border-0">
+                Entrar
+              </button>
+            </form>
+          </div>
+
+          <!-- REGISTER -->
+          <div class="w-1/2 pr-1">
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+              <div class="grid grid-cols-2 gap-x-3">
+                <div class="mb-3">
+                  <label class="block text-[11px] font-semibold text-[#888] uppercase tracking-widest mb-1.5">Nome completo</label>
+                  <input
+                    class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
+                    type="text" formControlName="name" placeholder="João Silva"/>
+                </div>
+                <div class="mb-3">
+                  <label class="block text-[11px] font-semibold text-[#888] uppercase tracking-widest mb-1.5">E-mail</label>
+                  <input
+                    class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
+                    type="email" formControlName="email" placeholder="seu@email.com"/>
+                </div>
+                <div class="mb-3">
+                  <label class="block text-[11px] font-semibold text-[#888] uppercase tracking-widest mb-1.5">CPF</label>
+                  <input
+                    class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
+                    type="text" formControlName="cpf" placeholder="000.000.000-00"/>
+                </div>
+                <div class="mb-3">
+                  <label class="block text-[11px] font-semibold text-[#888] uppercase tracking-widest mb-1.5">Telefone</label>
+                  <input
+                    class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
+                    type="text" formControlName="cellphone" placeholder="(00) 00000-0000"/>
+                </div>
+              </div>
+              <div class="mb-4">
+                <label class="block text-[11px] font-semibold text-[#888] uppercase tracking-widest mb-1.5">Senha</label>
+                <input
+                  class="w-full px-3.5 py-2.5 border border-[#ebebeb] rounded-lg text-sm text-[#1a1a1a] bg-[#fafafa] outline-none transition-colors focus:border-[#1a1a1a] focus:bg-white placeholder:text-[#ccc]"
+                  type="password" formControlName="password" placeholder="••••••••"/>
+              </div>
+              <button type="submit"
+                      class="w-full py-3 bg-[#1a1a1a] text-white rounded-lg text-sm font-semibold cursor-pointer hover:opacity-80 transition-opacity border-0">
+                Criar conta
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
